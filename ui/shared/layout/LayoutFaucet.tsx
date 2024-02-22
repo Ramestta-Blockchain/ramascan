@@ -3,6 +3,7 @@ import React from 'react';
 import type { Props } from './types';
 
 import AppErrorBoundary from 'ui/shared/AppError/AppErrorBoundary';
+import Header from 'ui/snippets/header/Header';
 
 import * as Layout from './components';
 
@@ -11,11 +12,10 @@ const LayoutFaucet = ({ children }: Props) => {
     <Layout.Container>
       <Layout.MainArea>
         <Layout.SideBar/>
-        <Layout.MainColumn>
+        <Layout.MainColumn paddingTop={{ base: '88px', lg: 9 }}>
+          <Header isHomePage/>
           <AppErrorBoundary>
-            <Layout.Content>
-              { children }
-            </Layout.Content>
+            { children }
           </AppErrorBoundary>
         </Layout.MainColumn>
       </Layout.MainArea>

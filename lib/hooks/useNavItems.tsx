@@ -205,13 +205,13 @@ export default function useNavItems(): ReturnType {
         ),
         subItems: apiNavItems,
       },
-      {
+      config.features.faucet.isEnabled ? {
         text: 'RAMA Faucet',
         nextRoute: { pathname: '/faucet' as const },
         icon: faucetDocsIcon,
-        // isActive: apiNavItems.some(item => isInternalItem(item) && item.isActive),
-        // subItems: apiNavItems,
-      },
+        isActive: pathname === '/faucet',
+      } :
+        null,
       config.UI.sidebar.otherLinks.length > 0 ?
         {
           text: 'Other',
